@@ -132,7 +132,7 @@ export async function resolveSource(
     let paths = matchingSourcePaths(source, index, originFile);
     if (!paths.successful) return Result.failure(paths.error);
 
-    let result = [];
+    let result: Datarow<DataObject>[] = [];
     for (let path of paths.value) {
         let resolved = await resolvePathData(path, index);
         if (!resolved.successful) return resolved;

@@ -43,7 +43,7 @@ export interface CoreExecution {
 
 /** Shared execution code which just takes in arbitrary data, runs operations over it, and returns it + per-row errors. */
 export function executeCore(rows: Pagerow[], context: Context, ops: QueryOperation[]): Result<CoreExecution, string> {
-    let diagnostics = [];
+    let diagnostics: OperationDiagnostics[] = [];
     let identMeaning: IdentifierMeaning = { type: "path" };
     let startTime = Date.now();
 

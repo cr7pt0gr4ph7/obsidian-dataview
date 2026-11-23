@@ -17,7 +17,7 @@ interface CalendarFile extends IDot {
 }
 
 export class DataviewCalendarRenderer extends DataviewRefreshableRenderer {
-    private calendar: Calendar;
+    private calendar?: Calendar;
     constructor(
         public query: Query,
         public container: HTMLElement,

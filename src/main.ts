@@ -31,16 +31,17 @@ import { inlinePlugin } from "./ui/lp-render";
 import { Extension } from "@codemirror/state";
 
 export default class DataviewPlugin extends Plugin {
+    // Initialized by Obsidian's onload lifecycle.
     /** Plugin-wide default settings. */
-    public settings: DataviewSettings;
+    public settings!: DataviewSettings;
 
     /** The index that stores all dataview data. */
-    public index: FullIndex;
+    public index!: FullIndex;
     /** External-facing plugin API. */
-    public api: DataviewApi;
+    public api!: DataviewApi;
 
     /** CodeMirror 6 extensions that dataview installs. Tracked via array to allow for dynamic updates. */
-    private cmExtension: Extension[];
+    private cmExtension!: Extension[];
 
     async onload() {
         // Settings initialization; write defaults first time around.

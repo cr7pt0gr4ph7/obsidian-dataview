@@ -71,12 +71,18 @@ export function extractSubtags(tag: string): string[] {
     return result;
 }
 
+/** Format any thrown value, including its stack when available. */
+export function formatError(error: unknown): string {
+    let message = String(error);
+    return error instanceof Error && error.stack ? message + "\n\n" + error.stack : message;
+}
+
 /** Try calling the given function; on failure, return the error message.  */
 export function tryOrPropagate<T>(func: () => Result<T, string>): Result<T, string> {
     try {
         return func();
     } catch (error) {
-        return Result.failure("" + error + "\n\n" + error.stack);
+        return Result.failure(formatError(error));
     }
 }
 
@@ -85,7 +91,7 @@ export async function asyncTryOrPropagate<T>(func: () => Promise<Result<T, strin
     try {
         return await func();
     } catch (error) {
-        return Result.failure("" + error + "\n\n" + error.stack);
+        return Result.failure(formatError(error));
     }
 }
 

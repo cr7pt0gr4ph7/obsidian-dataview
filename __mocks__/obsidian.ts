@@ -5,19 +5,19 @@ export abstract class TAbstractFile {
     /**
      * @public
      */
-    vault: Vault;
+    declare vault: Vault;
     /**
      * @public
      */
-    path: string;
+    declare path: string;
     /**
      * @public
      */
-    name: string;
+    declare name: string;
     /**
      * @public
      */
-    parent: TFolder;
+    declare parent: TFolder;
 }
 
 /** Tracks file created/modified time as well as file system size. */
@@ -32,14 +32,14 @@ export interface FileStats {
 
 /** A regular file in the vault. */
 export class TFile extends TAbstractFile {
-    stat: FileStats;
-    basename: string;
-    extension: string;
+    declare stat: FileStats;
+    declare basename: string;
+    declare extension: string;
 }
 
 /** A folder in the vault. */
 export class TFolder extends TAbstractFile {
-    children: TAbstractFile[];
+    declare children: TAbstractFile[];
 
     isRoot(): boolean {
         return false;

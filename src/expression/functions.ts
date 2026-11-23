@@ -116,9 +116,9 @@ export class FunctionBuilder {
                     // Call the subfunction for each element in the longest array.
                     // If you call a vectorized function with different-length arrays,
                     // the output is limited by the length of the shortest array.
-                    let result = [];
+                    let result: Literal[] = [];
                     for (let vpos = 0; vpos < minLength; vpos++) {
-                        let subargs = [];
+                        let subargs: Literal[] = [];
                         for (let index = 0; index < args.length; index++) {
                             if (vectorizedPositions.includes(index)) {
                                 let arr = args[index] as any[];
@@ -520,7 +520,7 @@ export namespace DefaultFunctions {
     // Reverse an array or string.
     export const reverse = new FunctionBuilder("reverse")
         .add1("array", l => {
-            let result = [];
+            let result: any[] = [];
             for (let index = l.length - 1; index >= 0; index--) result.push(l[index]);
             return result;
         })

@@ -33,8 +33,15 @@ export class PageMetadata {
     /** The raw frontmatter for this document. */
     public frontmatter: Record<string, Literal>;
 
+    /** Requires creation time, modification time, and size in the initial metadata. */
     public constructor(path: string, init?: Partial<PageMetadata>) {
+        if (init?.ctime == null || init.mtime == null || init.size == null) {
+            throw new Error("Page metadata must include creation time, modification time, and size.");
+        }
         this.path = path;
+        this.ctime = init.ctime;
+        this.mtime = init.mtime;
+        this.size = init.size;
         this.fields = new Map<string, Literal>();
         this.frontmatter = {};
         this.tags = new Set<string>();
@@ -43,7 +50,7 @@ export class PageMetadata {
 
         Object.assign(this, init);
 
-        this.lists = (this.lists || []).map(l => new ListItem(l));
+        this.lists = (init.lists || []).map(l => new ListItem(l));
     }
 
     /** Canonicalize raw links and other data in partial data with normalizers, returning a completed object. */
@@ -202,13 +209,34 @@ export class ListItem {
         fullyCompleted: boolean;
     };
 
+    /** Requires the item's symbol, links, text, line information, and position. */
     public constructor(init?: Partial<ListItem>) {
+        if (
+            init?.symbol == null ||
+            init.link == null ||
+            init.section == null ||
+            init.text == null ||
+            init.line == null ||
+            init.lineCount == null ||
+            init.list == null ||
+            init.position == null
+        ) {
+            throw new Error("List item metadata is missing required fields.");
+        }
+        this.symbol = init.symbol;
+        this.link = init.link;
+        this.section = init.section;
+        this.text = init.text;
+        this.line = init.line;
+        this.lineCount = init.lineCount;
+        this.list = init.list;
+        this.position = init.position;
         Object.assign(this, init);
 
-        this.fields = this.fields || new Map();
-        this.tags = this.tags || new Set();
-        this.children = this.children || [];
-        this.links = this.links || [];
+        this.fields = init.fields || new Map();
+        this.tags = init.tags || new Set();
+        this.children = init.children || [];
+        this.links = init.links || [];
     }
 
     public id(): string {

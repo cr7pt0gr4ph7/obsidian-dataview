@@ -1,6 +1,12 @@
 import { Values, Link } from "../../data-model/value";
 
 describe("Links", () => {
+    test("initializes and validates link metadata", () => {
+        expect(Link.header("test", "heading").embed).toBe(false);
+        expect(Link.fromObject({ path: "test", type: "file" }).embed).toBe(false);
+        expect(() => Link.fromObject({})).toThrow("Link metadata must include");
+    });
+
     describe("Comparisons", () => {
         test("Same File", () => expect(Link.file("test").equals(Link.file("test"))).toBeTruthy());
         test("Different File", () => expect(Link.file("test").equals(Link.file("test2"))).toBeFalsy());

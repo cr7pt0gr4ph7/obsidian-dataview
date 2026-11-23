@@ -69,7 +69,7 @@ export class Context {
                     this.binaryOps.evaluate(field.op, a, b, this)
                 );
             case "list":
-                let result = [];
+                let result: Literal[] = [];
                 for (let child of field.values) {
                     let subeval = this.evaluate(child, data);
                     if (!subeval.successful) return subeval;
@@ -119,7 +119,7 @@ export class Context {
                 try {
                     return Result.success(call(this, ...args));
                 } catch (e) {
-                    return Result.failure(e.message);
+                    return Result.failure(e instanceof Error ? e.message : String(e));
                 }
             case "index":
                 // TODO: Will move this out to an 'primitives' module and add more content to it.

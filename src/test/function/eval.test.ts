@@ -28,6 +28,17 @@ test("Evaluate complex numeric operations", () => {
     expect(parseEval("39 / 3 <= 14")).toEqual(true);
 });
 
+test.each([new Error("failed"), "failed", null])("Reports thrown function values", thrown => {
+    const context = simpleContext();
+    context.functions = {
+        fail: () => {
+            throw thrown;
+        },
+    };
+    const result = context.evaluate(EXPRESSION.field.tryParse("fail()"));
+    expect(result).toEqual({ successful: false, error: thrown instanceof Error ? thrown.message : String(thrown) });
+});
+
 // <-- String Operations -->
 
 test("Evaluate simple string operations", () => {

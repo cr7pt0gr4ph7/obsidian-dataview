@@ -119,7 +119,7 @@ export class Context {
                 try {
                     return Result.success(call(this, ...args));
                 } catch (e) {
-                    return Result.failure(e.message);
+                    return Result.failure(e instanceof Error ? e.message : String(e));
                 }
             case "index":
                 // TODO: Will move this out to an 'primitives' module and add more content to it.

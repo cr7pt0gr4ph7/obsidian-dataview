@@ -7,7 +7,7 @@ import { PageMetadata } from "data-model/markdown";
 import { DataObject } from "data-model/value";
 import { DateTime } from "luxon";
 import { App, Component, MetadataCache, TAbstractFile, TFile, TFolder, Vault } from "obsidian";
-import { getParentFolder, setsEqual } from "util/normalize";
+import { formatError, getParentFolder, setsEqual } from "util/normalize";
 
 /** Aggregate index which has several sub-indices and will initialize all of them. */
 export class FullIndex extends Component {
@@ -357,7 +357,7 @@ export class CsvCache extends Component {
 
                 return Result.success(parseCsv(await result.text()));
             } catch (ex) {
-                return Result.failure("" + ex + "\n\n" + ex.stack);
+                return Result.failure(formatError(ex));
             }
         }
 

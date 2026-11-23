@@ -16,7 +16,7 @@
     "jsxFactory": "h",
     "noImplicitAny": true,
     "strictPropertyInitialization": true,
-    "useUnknownInCatchVariables": false,
+    "useUnknownInCatchVariables": true,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "noImplicitReturns": true,

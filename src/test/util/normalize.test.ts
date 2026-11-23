@@ -1,4 +1,4 @@
-import { canonicalizeVarName, normalizeHeaderForLink } from "util/normalize";
+import { asyncTryOrPropagate, canonicalizeVarName, normalizeHeaderForLink, tryOrPropagate } from "util/normalize";
 
 describe("Header Normalization", () => {
     test("Link", () => expect(normalizeHeaderForLink("Header  [[Outer Wilds]]  ")).toEqual("Header Outer Wilds"));
@@ -21,4 +21,25 @@ describe("Variable Canonicalization", () => {
     test("Dash", () => expect(canonicalizeVarName("Yes-sir")).toEqual("yes-sir"));
     test("Emoji", () => expect(canonicalizeVarName("📷")).toEqual("📷"));
     test("Статус", () => expect(canonicalizeVarName("Статус")).toEqual("статус"));
+});
+
+describe("Error propagation", () => {
+    test("preserves error messages and stacks", () => {
+        const error = new Error("failed");
+        const result = tryOrPropagate(() => {
+            throw error;
+        });
+        expect(result).toEqual({ successful: false, error: `${error}\n\n${error.stack}` });
+    });
+
+    test.each([null, "failed", Symbol("failed")])("handles thrown non-Error value %s", async value => {
+        const sync = tryOrPropagate(() => {
+            throw value;
+        });
+        const asyncResult = await asyncTryOrPropagate(async () => {
+            throw value;
+        });
+        expect(sync).toEqual({ successful: false, error: String(value) });
+        expect(asyncResult).toEqual({ successful: false, error: String(value) });
+    });
 });

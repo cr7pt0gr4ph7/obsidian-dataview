@@ -309,7 +309,7 @@ export class CsvCache extends Component {
     // Cache of loaded CSVs; old entries will periodically be removed
     cache: Map<string, { data: DataObject[]; loadTime: DateTime }>;
     // Periodic job which clears out the cache based on time.
-    cacheClearInterval: number;
+    cacheClearInterval?: number;
 
     public constructor(public vault: Vault) {
         super();

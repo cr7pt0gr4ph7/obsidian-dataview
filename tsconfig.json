@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": "src",
     "rootDir": "src",
+    "paths": {
+      "svelte": ["./node_modules/svelte/types/runtime/index.d.ts"],
+      "svelte/*": ["./node_modules/svelte/types/runtime/*/index.d.ts"],
+      "*": ["./src/*"]
+    },
     "sourceMap": true,
     "inlineSourceMap": false,
     "inlineSources": true,
@@ -11,17 +15,15 @@
     "jsx": "react",
     "jsxFactory": "h",
     "noImplicitAny": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "useUnknownInCatchVariables": false,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
-    "ignoreDeprecations": "6.0",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
-    "downlevelIteration": true,
     "esModuleInterop": true,
     "lib": ["dom", "scripthost", "ES2022"],
     "types": ["jest", "node"]

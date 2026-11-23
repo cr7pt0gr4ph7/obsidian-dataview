@@ -474,7 +474,13 @@ export class Link {
     }
 
     private constructor(fields: Partial<Link>) {
+        if (fields.path == null || fields.type == null) {
+            throw new Error("Link metadata must include a path and type.");
+        }
+        this.path = fields.path;
+        this.type = fields.type;
         Object.assign(this, fields);
+        this.embed = fields.embed ?? false;
     }
 
     /** Checks for link equality (i.e., that the links are pointing to the same exact location). */

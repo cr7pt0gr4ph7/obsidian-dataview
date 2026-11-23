@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
+    "rootDir": "src",
     "sourceMap": true,
     "inlineSourceMap": false,
     "inlineSources": true,
@@ -10,16 +11,20 @@
     "jsx": "react",
     "jsxFactory": "h",
     "noImplicitAny": true,
+    "strictPropertyInitialization": false,
+    "useUnknownInCatchVariables": false,
     "strictFunctionTypes": true,
     "strictNullChecks": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noUnusedLocals": true,
+    "ignoreDeprecations": "6.0",
     "moduleResolution": "node",
     "importHelpers": true,
     "downlevelIteration": true,
     "esModuleInterop": true,
-    "lib": ["dom", "scripthost", "ES2022"]
+    "lib": ["dom", "scripthost", "ES2022"],
+    "types": ["jest", "node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["lib/**/*"]

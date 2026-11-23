@@ -12,7 +12,7 @@ export function parseCsv(content: string): DataObject[] {
         dynamicTyping: true,
     });
 
-    let rows = [];
+    let rows: DataObject[] = [];
     for (let parsedRow of parsed.data) {
         let fields = parseFrontmatter(parsedRow) as DataObject;
         let result: DataObject = {};

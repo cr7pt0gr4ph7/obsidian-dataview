@@ -69,7 +69,7 @@ export class Context {
                     this.binaryOps.evaluate(field.op, a, b, this)
                 );
             case "list":
-                let result = [];
+                let result: Literal[] = [];
                 for (let child of field.values) {
                     let subeval = this.evaluate(child, data);
                     if (!subeval.successful) return subeval;

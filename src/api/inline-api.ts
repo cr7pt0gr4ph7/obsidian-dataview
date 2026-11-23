@@ -319,7 +319,7 @@ export class DataviewInlineApi {
         const simpleViewPath = `${viewName}.js`;
         const complexViewPath = `${viewName}/view.js`;
         let checkForCss = false;
-        let cssElement = undefined;
+        let cssElement: HTMLStyleElement | undefined = undefined;
         let viewFile = this.app.metadataCache.getFirstLinkpathDest(simpleViewPath, this.currentFilePath);
         if (!viewFile) {
             viewFile = this.app.metadataCache.getFirstLinkpathDest(complexViewPath, this.currentFilePath);

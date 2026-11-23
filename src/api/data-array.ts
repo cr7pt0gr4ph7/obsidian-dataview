@@ -97,9 +97,9 @@ export interface DataArray<T> {
     none(f: ArrayFunc<T, boolean>): boolean;
 
     /** Return the first element in the data array. Returns undefined if the array is empty. */
-    first(): T;
+    first(): T | undefined;
     /** Return the last element in the data array. Returns undefined if the array is empty. */
-    last(): T;
+    last(): T | undefined;
 
     /** Map every element in this data array to the given key, and then flatten it.*/
     to(key: string): DataArray<any>;
@@ -233,7 +233,7 @@ class DataArrayImpl<T> implements DataArray<T> {
     }
 
     public flatMap<U>(f: ArrayFunc<T, U[]>): DataArray<U> {
-        let result = [];
+        let result: U[] = [];
         for (let index = 0; index < this.length; index++) {
             let value = f(this.values[index], index, this.values);
             if (!value || value.length == 0) continue;
@@ -405,10 +405,10 @@ class DataArrayImpl<T> implements DataArray<T> {
         return this.values.every((v, i, a) => !f(v, i, a));
     }
 
-    public first(): T {
+    public first(): T | undefined {
         return this.values.length > 0 ? this.values[0] : undefined;
     }
-    public last(): T {
+    public last(): T | undefined {
         return this.values.length > 0 ? this.values[this.values.length - 1] : undefined;
     }
 
@@ -438,7 +438,7 @@ class DataArrayImpl<T> implements DataArray<T> {
     }
 
     public expand(key: string): DataArray<any> {
-        let result = [];
+        let result: any[] = [];
         let queue: any[] = ([] as any[]).concat(this.values);
 
         while (queue.length > 0) {
@@ -503,7 +503,7 @@ export namespace DataArray {
     export function from<T>(raw: Iterable<T>, settings: QuerySettings): DataArray<T> {
         if (isDataArray(raw)) return raw;
 
-        let data = [];
+        let data: T[] = [];
         for (let elem of raw) data.push(elem);
         return DataArrayImpl.wrap(data, settings);
     }

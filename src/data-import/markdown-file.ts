@@ -221,7 +221,7 @@ export function parseLists(
         let closestLink = rawElement.id === undefined ? sectionLink : Link.block(path, rawElement.id);
 
         // Gather any links that occur on the same lines as the task.
-        const links = [];
+        const links: Link[] = [];
         for (let line = rawElement.position.start.line; line <= rawElement.position.end.line; line++) {
             if (linksByLine[line]) links.push(...linksByLine[line]);
         }
@@ -329,7 +329,7 @@ export function parseFrontmatter(value: any): Literal {
         return null;
     } else if (typeof value === "object") {
         if (Array.isArray(value)) {
-            let result = [];
+            let result: Literal[] = [];
             for (let child of value as Array<any>) {
                 result.push(parseFrontmatter(child));
             }

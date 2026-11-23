@@ -1,4 +1,4 @@
-import { asyncTryOrPropagate, canonicalizeVarName, normalizeHeaderForLink, tryOrPropagate } from "util/normalize";
+import { asyncTryOrPropagate, canonicalizeVarName, normalizeHeaderForLink, tryOrPropagate } from "../../util/normalize";
 
 describe("Header Normalization", () => {
     test("Link", () => expect(normalizeHeaderForLink("Header  [[Outer Wilds]]  ")).toEqual("Header Outer Wilds"));

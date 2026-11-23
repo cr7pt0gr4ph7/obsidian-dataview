@@ -1,5 +1,5 @@
-import { extractTags } from "data-import/markdown-file";
-import * as common from "data-import/common";
+import { extractTags } from "../../data-import/markdown-file";
+import * as common from "../../data-import/common";
 import { FrontMatterCache } from "obsidian";
 import { PageMetadata, ListItem } from "data-model/markdown";
 import { Link } from "data-model/value";

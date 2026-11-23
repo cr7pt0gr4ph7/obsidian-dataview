@@ -1,8 +1,8 @@
-import { asyncEvalInContext, DataviewInlineApi } from "api/inline-api";
-import { renderErrorPre, renderValue } from "ui/render";
-import { DataviewRefreshableRenderer } from "ui/refreshable-view";
-import { DataviewApi } from "api/plugin-api";
-import { formatError } from "util/normalize";
+import { asyncEvalInContext, DataviewInlineApi } from "../../api/inline-api";
+import { renderErrorPre, renderValue } from "../render";
+import { DataviewRefreshableRenderer } from "../refreshable-view";
+import { DataviewApi } from "../../api/plugin-api";
+import { formatError } from "../../util/normalize";
 
 export class DataviewJSRenderer extends DataviewRefreshableRenderer {
     static PREAMBLE: string = "const dataview = this;const dv = this;";

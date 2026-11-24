@@ -1,4 +1,4 @@
-import { Link, Values } from "./value";
+import { Link, Values } from "./value.js";
 import { DateTime, Duration, SystemZone } from "luxon";
 
 /** Simplifies passing dataview values across the JS web worker barrier. */

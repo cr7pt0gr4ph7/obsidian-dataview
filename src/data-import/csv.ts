@@ -1,7 +1,7 @@
-import { canonicalizeVarName } from "../util/normalize";
-import { DataObject } from "../data-model/value";
+import { canonicalizeVarName } from "../util/normalize.js";
+import { DataObject } from "../data-model/value.js";
 import * as Papa from "papaparse";
-import { parseFrontmatter } from "./markdown-file";
+import { parseFrontmatter } from "./markdown-file.js";
 
 /** Parse a CSV file into a collection of data rows. */
 export function parseCsv(content: string): DataObject[] {

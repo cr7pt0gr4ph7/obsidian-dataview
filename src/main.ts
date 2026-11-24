@@ -9,25 +9,25 @@ import {
     Setting,
     WorkspaceLeaf,
 } from "obsidian";
-import { renderErrorPre } from "./ui/render";
-import { FullIndex } from "./data-index/index";
-import { parseField } from "./expression/parse";
-import { tryOrPropagate } from "./util/normalize";
-import { DataviewApi, isDataviewDisabled } from "./api/plugin-api";
-import { DataviewSettings, DEFAULT_QUERY_SETTINGS, DEFAULT_SETTINGS } from "./settings";
-import { DataviewInlineRenderer } from "./ui/views/inline-view";
-import { DataviewInlineJSRenderer } from "./ui/views/js-view";
-import { currentLocale } from "./util/locale";
+import { renderErrorPre } from "./ui/render.js";
+import { FullIndex } from "./data-index/index.js";
+import { parseField } from "./expression/parse.js";
+import { tryOrPropagate } from "./util/normalize.js";
+import { DataviewApi, isDataviewDisabled } from "./api/plugin-api.js";
+import { DataviewSettings, DEFAULT_QUERY_SETTINGS, DEFAULT_SETTINGS } from "./settings.js";
+import { DataviewInlineRenderer } from "./ui/views/inline-view.js";
+import { DataviewInlineJSRenderer } from "./ui/views/js-view.js";
+import { currentLocale } from "./util/locale.js";
 import { DateTime } from "luxon";
-import { DataviewInlineApi } from "./api/inline-api";
-import { replaceInlineFields } from "./ui/views/inline-field";
+import { DataviewInlineApi } from "./api/inline-api.js";
+import { replaceInlineFields } from "./ui/views/inline-field.js";
 import {
     inlineFieldsField,
     replaceInlineFieldsInLivePreview,
     workspaceLayoutChangeEffect,
-} from "./ui/views/inline-field-live-preview";
-import { DataviewInit } from "./ui/markdown";
-import { inlinePlugin } from "./ui/lp-render";
+} from "./ui/views/inline-field-live-preview.js";
+import { DataviewInit } from "./ui/markdown.js";
+import { inlinePlugin } from "./ui/lp-render.js";
 import { Extension } from "@codemirror/state";
 
 export default class DataviewPlugin extends Plugin {

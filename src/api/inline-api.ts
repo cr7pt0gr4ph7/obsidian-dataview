@@ -1,20 +1,20 @@
 /** Fancy wrappers for the JavaScript API, used both by external plugins AND by the dataview javascript view. */
 
 import { App, Component } from "obsidian";
-import { FullIndex } from "../data-index";
-import { renderValue, renderErrorPre } from "../ui/render";
-import type { DataviewApi, DataviewIOApi, QueryApiSettings, QueryResult } from "./plugin-api";
-import { DataviewSettings, ExportSettings } from "../settings";
-import { DataObject, Grouping, Link, Literal, Values, Widgets } from "../data-model/value";
-import { BoundFunctionImpl, DEFAULT_FUNCTIONS, Functions } from "../expression/functions";
-import { Context } from "../expression/context";
-import { defaultLinkHandler } from "../query/engine";
+import { FullIndex } from "../data-index/index.js";
+import { renderValue, renderErrorPre } from "../ui/render.js";
+import type { DataviewApi, DataviewIOApi, QueryApiSettings, QueryResult } from "./plugin-api.js";
+import { DataviewSettings, ExportSettings } from "../settings.js";
+import { DataObject, Grouping, Link, Literal, Values, Widgets } from "../data-model/value.js";
+import { BoundFunctionImpl, DEFAULT_FUNCTIONS, Functions } from "../expression/functions.js";
+import { Context } from "../expression/context.js";
+import { defaultLinkHandler } from "../query/engine.js";
 import { DateTime, Duration } from "luxon";
 import * as Luxon from "luxon";
-import { DataArray } from "./data-array";
-import { SListItem } from "../data-model/serialized/markdown";
-import { EXPRESSION } from "../expression/parse";
-import { Result } from "./result";
+import { DataArray } from "./data-array.js";
+import { SListItem } from "../data-model/serialized/markdown.js";
+import { EXPRESSION } from "../expression/parse.js";
+import { Result } from "./result.js";
 
 /** Asynchronous API calls related to file / system IO. */
 export class DataviewInlineIOApi {

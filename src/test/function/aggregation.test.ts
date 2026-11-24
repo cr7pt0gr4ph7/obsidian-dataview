@@ -1,4 +1,4 @@
-import { expectEvals } from "../common";
+import { expectEvals } from "../common.js";
 
 describe("map()", () => {
     test("empty list", () => expectEvals("map([], (k) => 6)", []));

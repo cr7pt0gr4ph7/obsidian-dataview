@@ -1,8 +1,8 @@
-import { extractTags } from "../../data-import/markdown-file";
-import * as common from "../../data-import/common";
+import { extractTags } from "../../data-import/markdown-file.js";
+import * as common from "../../data-import/common.js";
 import { FrontMatterCache } from "obsidian";
-import { PageMetadata, ListItem } from "../../data-model/markdown";
-import { Link } from "../../data-model/value";
+import { PageMetadata, ListItem } from "../../data-model/markdown.js";
+import { Link } from "../../data-model/value.js";
 import { DateTime } from "luxon";
 
 describe("Frontmatter Tags", () => {

@@ -1,6 +1,6 @@
 // <-- regexreplace() -->
 
-import { parseEval } from "../common";
+import { parseEval } from "../common.js";
 
 describe("regexreplace()", () => {
     test("letter", () => expect(parseEval('regexreplace("yes", "y", "no")')).toEqual("noes"));

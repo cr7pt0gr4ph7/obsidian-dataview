@@ -30,16 +30,16 @@
 import { Decoration, DecorationSet, EditorView, ViewPlugin, ViewUpdate, WidgetType } from "@codemirror/view";
 import { EditorSelection, Range } from "@codemirror/state";
 import { syntaxTree, tokenClassNodeProp } from "@codemirror/language";
-import { DataviewSettings } from "../settings";
-import { FullIndex } from "../data-index";
+import { DataviewSettings } from "../settings.js";
+import { FullIndex } from "../data-index/index.js";
 import { App, Component, editorInfoField, editorLivePreviewField, TFile } from "obsidian";
-import { DataviewApi } from "../api/plugin-api";
-import { tryOrPropagate } from "../util/normalize";
-import { parseField } from "../expression/parse";
-import { executeInline } from "../query/engine";
-import { Literal } from "../data-model/value";
-import { DataviewInlineApi } from "../api/inline-api";
-import { renderValue } from "./render";
+import { DataviewApi } from "../api/plugin-api.js";
+import { tryOrPropagate } from "../util/normalize.js";
+import { parseField } from "../expression/parse.js";
+import { executeInline } from "../query/engine.js";
+import { Literal } from "../data-model/value.js";
+import { DataviewInlineApi } from "../api/inline-api.js";
+import { renderValue } from "./render.js";
 import { SyntaxNode } from "@lezer/common";
 
 export function selectionAndRangeOverlap(selection: EditorSelection, rangeFrom: number, rangeTo: number) {

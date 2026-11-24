@@ -19,7 +19,7 @@ const getRollupPlugins = (tsconfig, ...plugins) =>
         typescript2(tsconfig),
         nodeResolve({ browser: true }),
         commonjs(),
-        webWorker({ inline: true, forceInline: true, targetPlatform: "browser" }),
+        webWorker({ inline: true, forceInline: true, targetPlatform: "node" }),
     ].concat(plugins);
 
 const DEV_PLUGIN_CONFIG = {

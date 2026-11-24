@@ -9,7 +9,12 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
 } else if (typeof (global as any).threads !== "undefined") {
     // Loaded in a NodeJS worker thread.
     // Turn global into a mock WorkerGlobalScope.
-    (global as any).self = global;
+    const self = (global as any).self = global as any;
+    const threads = (global as any).threads as any;
+    threads.parentPort.on('message', (data: any) => {
+        const event = { data };
+        self.onmessage?.(event);
+    });
 }
 
 /** An import which can fail and raise an exception, which will be caught by the handler. */

@@ -6,16 +6,16 @@ import { CachedMetadata, FileStats } from "obsidian";
 if (typeof (global as any).WorkerGlobalScope === 'function') {
     // Loaded in a real Web Worker (eg: on Electron).
     // We do not have to do anything.
-} else if (typeof (global as any).threads !== "undefined") {
+} else {
     // Loaded in a NodeJS worker thread.
     // Turn global into a mock WorkerGlobalScope.
     // var self = (global as any).self = global as any as WindowOrWorkerGlobalScope;
+    const threads = require("node:worker_threads");
     const self = (global as any).self = global as any as {
         onmessage?: (evt: MessageEvent) => void;
         postMessage?: (message: any) => void;
     };
-    const threads = (global as any).threads as any;
-    threads.parentPort.on('message', (data: any) => {
+    threads.parentPort!.on('message', (data: any) => {
         self.onmessage?.(new MessageEvent('message', data));
     });
 }

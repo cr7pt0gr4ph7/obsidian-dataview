@@ -1,4 +1,4 @@
-import type { DataviewApi } from "../api/plugin-api";
+import type { DataviewApi } from "../api/plugin-api.js";
 import "obsidian";
 import { EditorView } from "@codemirror/view";
 

@@ -1,11 +1,11 @@
-import { FullIndex } from "../../data-index";
-import { Field } from "../../expression/field";
+import { FullIndex } from "../../data-index/index.js";
+import { Field } from "../../expression/field.js";
 import { App } from "obsidian";
-import { executeInline } from "../../query/engine";
-import { DataviewSettings } from "../../settings";
-import { renderErrorPre, renderValue } from "../render";
-import { DataviewRefreshableRenderer } from "../refreshable-view";
-import { tryOrPropagate } from "../../util/normalize";
+import { executeInline } from "../../query/engine.js";
+import { DataviewSettings } from "../../settings.js";
+import { renderErrorPre, renderValue } from "../render.js";
+import { DataviewRefreshableRenderer } from "../refreshable-view.js";
+import { tryOrPropagate } from "../../util/normalize.js";
 
 /** Refreshable renderer which renders inline instead of in a div. */
 export class DataviewInlineRenderer extends DataviewRefreshableRenderer {

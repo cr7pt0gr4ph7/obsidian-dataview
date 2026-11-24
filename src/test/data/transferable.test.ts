@@ -1,5 +1,5 @@
-import { Transferable } from "../../data-model/transferable";
-import { Link } from "../../data-model/value";
+import { Transferable } from "../../data-model/transferable.js";
+import { Link } from "../../data-model/value.js";
 import { DateTime, Duration } from "luxon";
 
 describe("Literals", () => {

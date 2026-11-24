@@ -1,5 +1,5 @@
-import { Groupings, Values } from "../data-model/value";
-import { QuerySettings } from "../settings";
+import { Groupings, Values } from "../data-model/value.js";
+import { QuerySettings } from "../settings.js";
 
 /** A function which maps an array element to some value. */
 export type ArrayFunc<T, O> = (elem: T, index: number, arr: T[]) => O;

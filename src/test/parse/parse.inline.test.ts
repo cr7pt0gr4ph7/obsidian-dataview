@@ -1,6 +1,10 @@
-import { EXPRESSION } from "../../expression/parse";
-import { Link } from "../../data-model/value";
-import { extractInlineFields, setEmojiShorthandCompletionField, setInlineField } from "../../data-import/inline-field";
+import { EXPRESSION } from "../../expression/parse.js";
+import { Link } from "../../data-model/value.js";
+import {
+    extractInlineFields,
+    setEmojiShorthandCompletionField,
+    setInlineField,
+} from "../../data-import/inline-field.js";
 
 // <-- Inline field weird edge cases -->
 

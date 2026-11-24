@@ -1,13 +1,13 @@
-import { setEmojiShorthandCompletionField, setInlineField } from "../../data-import/inline-field";
-import { LIST_ITEM_REGEX } from "../../data-import/markdown-file";
-import { SListEntry, SListItem, STask } from "../../data-model/serialized/markdown";
-import { GroupElement, Grouping, Groupings } from "../../data-model/value";
+import { setEmojiShorthandCompletionField, setInlineField } from "../../data-import/inline-field.js";
+import { LIST_ITEM_REGEX } from "../../data-import/markdown-file.js";
+import { SListEntry, SListItem, STask } from "../../data-model/serialized/markdown.js";
+import { GroupElement, Grouping, Groupings } from "../../data-model/value.js";
 import { DateTime } from "luxon";
 import { MarkdownRenderChild, Platform, Vault } from "obsidian";
 import { Fragment, h } from "preact";
 import { useContext } from "preact/hooks";
-import { executeTask } from "../../query/engine";
-import { Query } from "../../query/query";
+import { executeTask } from "../../query/engine.js";
+import { Query } from "../../query/query.js";
 import {
     DataviewContext,
     ErrorPre,
@@ -17,8 +17,8 @@ import {
     ReactRenderer,
     useIndexBackedState,
     DataviewInit,
-} from "../markdown";
-import { asyncTryOrPropagate } from "../../util/normalize";
+} from "../markdown.js";
+import { asyncTryOrPropagate } from "../../util/normalize.js";
 
 /** Function used to test if a given event correspond to a pressed link */
 function wasLinkPressed(evt: preact.JSX.TargetedMouseEvent<HTMLElement>): boolean {

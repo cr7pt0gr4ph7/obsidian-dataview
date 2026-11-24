@@ -1,6 +1,6 @@
 /** Provides an AST for complex queries. */
-import { Source } from "../data-index/source";
-import { Field } from "../expression/field";
+import { Source } from "../data-index/source.js";
+import { Field } from "../expression/field.js";
 
 /** The supported query types (corresponding to view types). */
 export type QueryType = "list" | "table" | "task" | "calendar";

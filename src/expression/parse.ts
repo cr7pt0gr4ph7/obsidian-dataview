@@ -1,10 +1,10 @@
 import { DateTime, Duration } from "luxon";
-import { Literal, Link } from "../data-model/value";
+import { Literal, Link } from "../data-model/value.js";
 import * as P from "parsimmon";
-import { BinaryOp, Field, Fields, LambdaField, ListField, LiteralField, ObjectField, VariableField } from "./field";
-import { FolderSource, NegatedSource, Source, SourceOp, Sources, TagSource, CsvSource } from "../data-index/source";
-import { normalizeDuration } from "../util/normalize";
-import { Result } from "../api/result";
+import { BinaryOp, Field, Fields, LambdaField, ListField, LiteralField, ObjectField, VariableField } from "./field.js";
+import { FolderSource, NegatedSource, Source, SourceOp, Sources, TagSource, CsvSource } from "../data-index/source.js";
+import { normalizeDuration } from "../util/normalize.js";
+import { Result } from "../api/result.js";
 import emojiRegex from "emoji-regex";
 
 /** Emoji regex without any additional flags. */

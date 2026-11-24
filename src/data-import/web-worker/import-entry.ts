@@ -15,10 +15,15 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
         onmessage?: (evt: MessageEvent) => void;
         postMessage?: (message: any) => void;
     };
+    self.postMessage = (message: any) => {
+        threads.parentPort!.postMessage(message);
+    };
     threads.parentPort!.on('message', (data: any) => {
-        self.onmessage?.(new MessageEvent('message', data));
+        console.log("Received data:", data);
+        self.onmessage?.(new MessageEvent('message', { data }));
     });
 }
+
 
 // Avoid "undefined variable" errors
 var self = global.self;

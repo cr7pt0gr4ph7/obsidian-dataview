@@ -1,16 +1,16 @@
 /**
  * Takes a full query and a set of indices, and (hopefully quickly) returns all relevant files.
  */
-import { FullIndex } from "../data-index/index";
-import { Context, LinkHandler } from "../expression/context";
-import { resolveSource, Datarow, matchingSourcePaths } from "../data-index/resolver";
-import { DataObject, Link, Literal, Values, Grouping, Widgets } from "../data-model/value";
-import { CalendarQuery, ListQuery, Query, QueryOperation, TableQuery } from "./query";
-import { Result } from "../api/result";
-import { Field, Fields } from "../expression/field";
-import { QuerySettings } from "../settings";
+import { FullIndex } from "../data-index/index.js";
+import { Context, LinkHandler } from "../expression/context.js";
+import { resolveSource, Datarow, matchingSourcePaths } from "../data-index/resolver.js";
+import { DataObject, Link, Literal, Values, Grouping, Widgets } from "../data-model/value.js";
+import { CalendarQuery, ListQuery, Query, QueryOperation, TableQuery } from "./query.js";
+import { Result } from "../api/result.js";
+import { Field, Fields } from "../expression/field.js";
+import { QuerySettings } from "../settings.js";
 import { DateTime } from "luxon";
-import { SListItem } from "../data-model/serialized/markdown";
+import { SListItem } from "../data-model/serialized/markdown.js";
 
 function iden<T>(x: T): T {
     return x;

@@ -1,4 +1,4 @@
-import { EXPRESSION } from "../expression/parse";
+import { EXPRESSION } from "../expression/parse.js";
 import * as P from "parsimmon";
 import {
     FlattenStep,
@@ -14,10 +14,10 @@ import {
     SortByStep,
     WhereStep,
     Comment,
-} from "./query";
-import { Source, Sources } from "../data-index/source";
-import { DEFAULT_QUERY_SETTINGS } from "../settings";
-import { Result } from "../api/result";
+} from "./query.js";
+import { Source, Sources } from "../data-index/source.js";
+import { DEFAULT_QUERY_SETTINGS } from "../settings.js";
+import { Result } from "../api/result.js";
 
 ///////////////////
 // Query Parsing //

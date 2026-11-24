@@ -1,6 +1,6 @@
 /** Actual import implementation backend. This must remain separate from `import-entry` since it is used without web workers. */
-import { parsePage } from "../markdown-file";
-import { PageMetadata } from "../../data-model/markdown";
+import { parsePage } from "../markdown-file.js";
+import { PageMetadata } from "../../data-model/markdown.js";
 import { CachedMetadata, FileStats } from "obsidian";
 
 export function runImport(

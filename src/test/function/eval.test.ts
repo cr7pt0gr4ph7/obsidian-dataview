@@ -1,11 +1,11 @@
 /** Various tests for evaluating fields in context. */
 
-import { EXPRESSION } from "../../expression/parse";
-import { Context, LinkHandler } from "../../expression/context";
+import { EXPRESSION } from "../../expression/parse.js";
+import { Context, LinkHandler } from "../../expression/context.js";
 import { Duration } from "luxon";
-import { Fields } from "../../expression/field";
-import { Literal, Link } from "../../data-model/value";
-import { DEFAULT_QUERY_SETTINGS } from "../../settings";
+import { Fields } from "../../expression/field.js";
+import { Literal, Link } from "../../data-model/value.js";
+import { DEFAULT_QUERY_SETTINGS } from "../../settings.js";
 
 // <-- Numeric Operations -->
 

@@ -1,5 +1,5 @@
-import { DataArray } from "../../api/data-array";
-import { DEFAULT_QUERY_SETTINGS } from "../../settings";
+import { DataArray } from "../../api/data-array.js";
+import { DEFAULT_QUERY_SETTINGS } from "../../settings.js";
 
 describe("where", () => {
     test("true", () =>

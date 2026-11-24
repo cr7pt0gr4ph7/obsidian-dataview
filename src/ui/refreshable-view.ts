@@ -1,6 +1,6 @@
-import { FullIndex } from "../data-index";
+import { FullIndex } from "../data-index/index.js";
 import { App, MarkdownRenderChild } from "obsidian";
-import { DataviewSettings } from "../settings";
+import { DataviewSettings } from "../settings.js";
 
 /** Generic code for embedded Dataviews. */
 export abstract class DataviewRefreshableRenderer extends MarkdownRenderChild {

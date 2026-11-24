@@ -1,13 +1,13 @@
-import { FullIndex } from "../../data-index";
-import { Link } from "../../index";
+import { FullIndex } from "../../data-index/index.js";
+import { Link } from "../../index.js";
 import { App } from "obsidian";
 import { Calendar, ICalendarSource, IDayMetadata, IDot } from "obsidian-calendar-ui";
-import { executeCalendar } from "../../query/engine";
-import { Query } from "../../query/query";
-import { DataviewSettings } from "../../settings";
-import { renderErrorPre } from "../render";
-import { DataviewRefreshableRenderer } from "../refreshable-view";
-import { asyncTryOrPropagate } from "../../util/normalize";
+import { executeCalendar } from "../../query/engine.js";
+import { Query } from "../../query/query.js";
+import { DataviewSettings } from "../../settings.js";
+import { renderErrorPre } from "../render.js";
+import { DataviewRefreshableRenderer } from "../refreshable-view.js";
+import { asyncTryOrPropagate } from "../../util/normalize.js";
 import type { Moment } from "moment";
 
 // CalendarFile is a representation of a particular file, displayed in the calendar view.

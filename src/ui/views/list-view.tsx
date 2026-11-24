@@ -1,7 +1,7 @@
 import { MarkdownRenderChild } from "obsidian";
-import { executeList } from "../../query/engine";
-import { Query } from "../../query/query";
-import { asyncTryOrPropagate } from "../../util/normalize";
+import { executeList } from "../../query/engine.js";
+import { Query } from "../../query/query.js";
+import { asyncTryOrPropagate } from "../../util/normalize.js";
 import { useContext } from "preact/hooks";
 import {
     DataviewContext,
@@ -11,9 +11,9 @@ import {
     Lit,
     ReactRenderer,
     useIndexBackedState,
-} from "../markdown";
+} from "../markdown.js";
 import { h, Fragment } from "preact";
-import { Literal } from "../../data-model/value";
+import { Literal } from "../../data-model/value.js";
 
 export function ListGrouping({ items, sourcePath }: { items: Literal[]; sourcePath: string }) {
     return (

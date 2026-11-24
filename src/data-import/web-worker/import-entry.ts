@@ -19,7 +19,6 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
         threads.parentPort!.postMessage(message);
     };
     threads.parentPort!.on('message', (data: any) => {
-        console.log("Received data:", data);
         self.onmessage?.(new MessageEvent('message', { data }));
     });
 }

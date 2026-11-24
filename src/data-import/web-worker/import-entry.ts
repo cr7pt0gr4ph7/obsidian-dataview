@@ -10,7 +10,7 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
     // Loaded in a NodeJS worker thread.
     // Turn global into a mock WorkerGlobalScope.
     // var self = (global as any).self = global as any as WindowOrWorkerGlobalScope;
-    var self = (global as any).self = global as any as {
+    const self = (global as any).self = global as any as {
         onmessage?: (evt: MessageEvent) => void;
         postMessage?: (message: any) => void;
     };
@@ -19,6 +19,9 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
         self.onmessage?.(new MessageEvent('message', data));
     });
 }
+
+// Avoid "undefined variable" errors
+var self = global.self;
 
 /** An import which can fail and raise an exception, which will be caught by the handler. */
 function failableImport(path: string, contents: string, stat: FileStats, metadata?: CachedMetadata) {

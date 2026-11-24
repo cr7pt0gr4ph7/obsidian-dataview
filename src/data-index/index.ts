@@ -403,7 +403,7 @@ export class StarredCache extends Component {
         super();
 
         this.stars = StarredCache.fetch(this.app);
-        this.registerInterval(window.setInterval(() => this.reload(), StarredCache.REFRESH_INTERVAL));
+        // this.registerInterval(window.setInterval(() => this.reload(), StarredCache.REFRESH_INTERVAL));
 
         const initialHandler = window.setTimeout(() => this.reload(), StarredCache.INITIAL_DELAY);
         this.register(() => window.clearTimeout(initialHandler));

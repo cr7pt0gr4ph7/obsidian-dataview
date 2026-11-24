@@ -3,6 +3,15 @@ import { runImport } from "./import-impl.js";
 import { Transferable } from "../../data-model/transferable.js";
 import { CachedMetadata, FileStats } from "obsidian";
 
+if (typeof global.WorkerGlobalScope === 'function') {
+    // Loaded in a real Web Worker (eg: on Electron).
+    // We do not have to do anything.
+} else if (typeof global.threads !== "undefined") {
+    // Loaded in a NodeJS worker thread.
+    // Turn global into a mock WorkerGlobalScope.
+    global.self = global;
+}
+
 /** An import which can fail and raise an exception, which will be caught by the handler. */
 function failableImport(path: string, contents: string, stat: FileStats, metadata?: CachedMetadata) {
     if (metadata === undefined || metadata === null) {

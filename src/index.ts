@@ -1,10 +1,10 @@
 // Basic API type.
-export type { DataviewApi } from "./api/plugin-api.js";
-export type { DataviewInlineApi, DataviewInlineIOApi } from "./api/inline-api.js";
+export { DataviewApi } from "./api/plugin-api.js";
+export { DataviewInlineApi, DataviewInlineIOApi } from "./api/inline-api.js";
 
 // Core Dataview types.
-export type { DateTime, Duration } from "luxon";
-export type {
+export { DateTime, Duration } from "luxon";
+export {
     Link,
     DataObject,
     LiteralType,
@@ -15,15 +15,15 @@ export type {
     Widget,
 } from "./data-model/value.js";
 
-export type { Result, Success, Failure } from "./api/result.js";
-export type { DataArray } from "./api/data-array.js";
+export { Result, Success, Failure } from "./api/result.js";
+export { DataArray } from "./api/data-array.js";
 
 // Dataview Index.
-export type { ListItem, PageMetadata } from "./data-model/markdown.js";
-export type { FullIndex, PrefixIndex, IndexMap } from "./data-index/index.js";
+export { ListItem, PageMetadata } from "./data-model/markdown.js";
+export { FullIndex, PrefixIndex, IndexMap } from "./data-index/index.js";
 
 // Serialized types which describe all outputs of serialization.
-export type { SMarkdownPage, SListEntry, STask } from "./data-model/serialized/markdown.js";
+export { SMarkdownPage, SListEntry, STask } from "./data-model/serialized/markdown.js";
 
 // Useful utilities for directly using dataview parsers.
 export {
@@ -41,10 +41,10 @@ export { Query } from "./query/query.js";
 // Implementation //
 ////////////////////
 
-import type { DataviewApi } from "./api/plugin-api.js";
+import { DataviewApi } from "./api/plugin-api.js";
 
 import "obsidian";
-import type { App } from "obsidian";
+import { App } from "obsidian";
 
 // Utility functions.
 /**

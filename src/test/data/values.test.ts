@@ -1,4 +1,4 @@
-import { Values, Link } from "../../data-model/value";
+import { Values, Link } from "../../data-model/value.js";
 
 describe("Links", () => {
     test("initializes and validates link metadata", () => {

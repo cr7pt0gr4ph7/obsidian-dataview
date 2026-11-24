@@ -1,7 +1,7 @@
-import { Literal } from "../data-model/value";
-import { Context, LinkHandler } from "../expression/context";
-import { EXPRESSION } from "../expression/parse";
-import { DEFAULT_QUERY_SETTINGS } from "../settings";
+import { Literal } from "../data-model/value.js";
+import { Context, LinkHandler } from "../expression/context.js";
+import { EXPRESSION } from "../expression/parse.js";
+import { DEFAULT_QUERY_SETTINGS } from "../settings.js";
 
 /** Expect that the given dataview expression resolves to the given value. */
 export function expectEvals(text: string, result: Literal) {

@@ -37,6 +37,9 @@ export {
 export { QUERY_LANGUAGE } from "./query/parse.js";
 export { Query } from "./query/query.js";
 
+// Settings.
+export { DataviewSettings, DEFAULT_SETTINGS as DEFAULT_DATAVIEW_SETTINGS } from "./settings.js";
+
 ////////////////////
 // Implementation //
 ////////////////////

@@ -3,13 +3,13 @@ import { runImport } from "./import-impl.js";
 import { Transferable } from "../../data-model/transferable.js";
 import { CachedMetadata, FileStats } from "obsidian";
 
-if (typeof global.WorkerGlobalScope === 'function') {
+if (typeof (global as any).WorkerGlobalScope === 'function') {
     // Loaded in a real Web Worker (eg: on Electron).
     // We do not have to do anything.
-} else if (typeof global.threads !== "undefined") {
+} else if (typeof (global as any).threads !== "undefined") {
     // Loaded in a NodeJS worker thread.
     // Turn global into a mock WorkerGlobalScope.
-    global.self = global;
+    (global as any).self = global;
 }
 
 /** An import which can fail and raise an exception, which will be caught by the handler. */

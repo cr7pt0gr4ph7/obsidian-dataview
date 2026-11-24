@@ -12,7 +12,7 @@ function failableImport(path: string, contents: string, stat: FileStats, metadat
     return runImport(path, contents, stat, metadata);
 }
 
-onmessage = async evt => {
+self.onmessage = async evt => {
     try {
         let { path, contents, stat, metadata } = evt.data;
         let result = failableImport(path, contents, stat, metadata);

@@ -10,7 +10,7 @@ if (typeof (global as any).WorkerGlobalScope === 'function') {
     // Loaded in a NodeJS worker thread.
     // Turn global into a mock WorkerGlobalScope.
     // var self = (global as any).self = global as any as WindowOrWorkerGlobalScope;
-    const threads = require("node:worker_threads");
+    const threads = require("node:worker_threads") as Awaited<typeof import("node:worker_threads")>;
     const self = (global as any).self = global as any as {
         onmessage?: (evt: MessageEvent) => void;
         postMessage?: (message: any) => void;

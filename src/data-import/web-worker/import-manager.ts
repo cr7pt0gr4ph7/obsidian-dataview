@@ -33,7 +33,7 @@ export class FileImporter extends Component {
         for (let index = 0; index < numWorkers; index++) {
            let worker = new DataviewImportWorker({ name: "Dataview Indexer " + (index + 1) }) as any as import("node:worker_threads").Worker;
 
-            worker.on('message', evt => this.finish(evt.data.path, Transferable.value(evt.data.result), index));
+            worker.on("message", evt => this.finish(evt.data.path, Transferable.value(evt.data.result), index));
             this.workers.push(worker as any);
             this.register(() => worker.terminate());
             this.busy.push(false);

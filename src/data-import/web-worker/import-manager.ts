@@ -31,10 +31,10 @@ export class FileImporter extends Component {
         this.callbacks = new Map();
 
         for (let index = 0; index < numWorkers; index++) {
-            let worker = new DataviewImportWorker({ name: "Dataview Indexer " + (index + 1) });
+           let worker = new DataviewImportWorker({ name: "Dataview Indexer " + (index + 1) }) as any as import("node:worker_threads").Worker;
 
-            worker.onmessage = evt => this.finish(evt.data.path, Transferable.value(evt.data.result), index);
-            this.workers.push(worker);
+            worker.on('message', evt => this.finish(evt.data.path, Transferable.value(evt.data.result), index));
+            this.workers.push(worker as any);
             this.register(() => worker.terminate());
             this.busy.push(false);
         }
